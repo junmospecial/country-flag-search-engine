@@ -9,6 +9,16 @@ html {
 body {
     margin:0;
 }
+
+.header1 {
+    text-align: center;
+}
+
+.search-form {
+    display: inline-block;
+    margin-right: 20px; /* Adjust this value as needed */
+}
+
  
 .bg {
     animation:slide 3s ease-in-out infinite alternate;
@@ -47,23 +57,37 @@ body {
 
 
 .country-box {
-    border: 2px solid powderblue;
+     border: 2px solid powderblue;
     border-radius: 10px;
     padding: 20px;
     justify-content: center;
     margin: 20px;
+    margin-right: auto;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     display: inline-block;
     width: 300px;
-    height: 300px;
-    overflow: hidden
-    
-
-    
-    
-    
+    height: 300px; /* Add a fixed height for scrolling */
+    overflow-y: auto; /* Enable vertical scrolling when content exceeds height */
 }
+    
+.popup {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+  }
+
+.hide {
+    display: none;
+}
+
 @keyframes slide {
     0% {
         transform:translateX(-25%);
@@ -91,4 +115,9 @@ li {
 img {
     max-width: 100%;
     height: auto;
+}
+
+
+h3 {
+    font-size: 500%;
 }
