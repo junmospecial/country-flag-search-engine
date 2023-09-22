@@ -43,10 +43,53 @@ document.addEventListener('DOMContentLoaded', function () {
       return;
     }
   
-    if (CurrencyName.length > 20) {
-      alert('Your search should not exceed 20 characters!');
+      function searchCurrency() {
+    const CurrencyName = CurrencyInput.value.trim();
+  
+    if (!CurrencyName.trim()) {
+      alert('Please enter a currency you would like to find.');
       return;
     }
+  
+    if (!/^[A-Z]{3}$/.test(CurrencyName)) {
+      alert('Please enter exactly 3 capital letters.');
+      return;
+  }
+  
+    const searchText = CurrencyName;
+    const countries = document.querySelectorAll('.country-box');
+  
+    let matches = [];
+  
+    countries.forEach(country => {
+      const currencyItems = country.querySelectorAll('ul li');
+      let currency = null;
+  
+      currencyItems.forEach(item => {
+        if (item.textContent.startsWith('Currency:')) {
+          currency = item.textContent;
+        }
+      });
+  
+      if (currency && currency.includes(searchText)) {
+        const cName = country.querySelector('h2').textContent;
+        matches.push({ cName, currency });
+      }
+    });
+  
+    if (matches.length > 0) {
+      let alertContent = '';
+  
+      for (let i = 0; i < Math.min(matches.length, 5); i++) {
+        alertContent += `${matches[i].cName} - ${matches[i].currency}\n`;
+      }
+      alert(alertContent);
+    } else {
+      alert('No matches found.');
+    }
+    
+  }
+  
   
     const searchText = CurrencyName.toLowerCase();
     const countries = document.querySelectorAll('.country-box');
@@ -75,12 +118,13 @@ document.addEventListener('DOMContentLoaded', function () {
       for (let i = 0; i < Math.min(matches.length, 5); i++) {
         alertContent += `${matches[i].cName} - ${matches[i].currency}\n`;
       }
+  
       alert(alertContent);
     } else {
       alert('No matches found.');
     }
     
-  }  
+  }
   
 
   // Add event listener for search button click
