@@ -2,42 +2,55 @@
 <html>
 
 <head>
+    <!-- Link to an external CSS file -->
     <link rel="stylesheet" href="style.css">
-    <script src="search.js"> </script>
+
+    <!-- Link to an external JavaScript file -->
+    <script src="search.js"></script>
 </head>
 
 <body>
+    <!-- Background divs with class names -->
     <div class="bg"></div>
     <div class="bg bg2"></div>
     <div class="bg bg3"></div>
-    </div>
+    </div> <!-- Note: There's an extra closing div tag here, which may be unnecessary -->
+
+    <!-- Another link to the same external CSS file (consider removing duplicates) -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- Header section -->
     <div class="header1">
         <div class="h3">
             <h2>Search for a country!</h2>
         </div>
         <p>Type a prompt into the search bar to be directed to a country of your choice:</p>
 
+        <!-- Search form for searching by country name -->
         <form>
             <label for="gsearchByName">
                 <input type="text" placeholder="Search Country by Name:" id="gsearchByName" name="gsearchByName">
                 <button id="searchByName" type="button">Search</button>
+            </label>
         </form>
 
         <div class="search-form"></div>
+
         <p><strong>OR</strong> Search by Currency using the following search bar:</p>
 
+        <!-- Search form for searching by currency code -->
         <form>
             <label for="gsearchByCurrency">
                 <input type="text" placeholder="Search by Currency Code:" id="gsearchByCurrency"
                     name="gsearchByCurrency">
                 <button id="searchByCurrency" type="button">Search</button>
+            </label>
         </form>
+
         <div class="search-results"></div>
     </div>
 
-
-    </div>
+    <!-- Country information boxes -->
 
     <div class="country-box">
         <img src="C:\Users\Junaid\Downloads\Lab1-country-data\country_flags\ru.png" alt="Russian Flag">
