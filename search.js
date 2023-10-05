@@ -12,7 +12,7 @@
     contentBlock.style.justifyContent = "center"; // Center content
     contentBlock.style.margin = "20px"; // Add margin
     contentBlock.style.marginRight = "auto"; // Align to the right
-    contentBlock.style.backgroundColor = "#fff"; // Background color
+    contentBlock.style.backgroundColor = "#D3D3D3"; // Background color
     contentBlock.style.boxShadow = "0 0 10px rgba(0, 0, 0, 0.1)"; // Add box shadow
     contentBlock.style.display = "none"; // Initially hide the content block
     document.body.insertBefore(contentBlock, document.querySelector('.country-box'));
@@ -36,7 +36,7 @@
       if (matches.length > 0) {
         // Make the content block visible
         contentBlock.style.display = 'block';
-        contentBlock.style.width = '1500px';
+        contentBlock.style.width = '1400px';
         contentBlock.style.height = '300px';
         contentBlock.style.overflow = 'auto';
 
