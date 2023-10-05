@@ -121,4 +121,48 @@
       // Update the search results in the content block
       updateSearchResults(matches);
     }
+
+    // Function to search for countries by currency
+    function searchCurrency() {
+      // Get the trimmed currency name from the currency input field
+      const CurrencyName = CurrencyInput.value.trim();
+
+      // Hide the content block if the input is empty
+      if (CurrencyName === '') {
+        contentBlock.style.display = 'none';
+        return; // Exit the function if input is empty
+      }
+
+      // Use the entered currency name as the search text
+      const searchText = CurrencyName;
+      const countries = document.querySelectorAll('.country-box');
+      let matches = [];
+
+      // Loop through each country box
+      countries.forEach(country => {
+        const currencyItems = country.querySelectorAll('ul li');
+        let currency = null;
+
+        // Find the currency information within the list items
+        currencyItems.forEach(item => {
+          if (item.textContent.startsWith('Currency:')) {
+            currency = item.textContent;
+          }
+        });
+
+        // Check if the currency information includes the search text
+        if (currency && currency.includes(searchText)) {
+          const cName = country.querySelector('h2').textContent;
+          const regions = country.querySelector('ul li:nth-child(2)').textContent;
+          const flag = country.querySelector('img').src;
+          const link = country.querySelector('ul li:nth-child(3) a').href;
+
+          matches.push({ cName, currency, regions, flag, link });
+        }
+      });
+
+      // Update the search results in the content block
+      updateSearchResults(matches);
+    }
+
   });
