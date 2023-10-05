@@ -165,4 +165,19 @@
       updateSearchResults(matches);
     }
 
+    // Add event listener for input change for name search
+    NameInput.addEventListener('input', function () {
+      searchCountries();
+    });
+
+    // Add event listener for input change for currency search
+    CurrencyInput.addEventListener('input', function () {
+      // Check if the input length is 3 before searching
+      if (CurrencyInput.value.trim().length === 3) {
+        searchCurrency();
+      } else {
+        // Hide the content block if the input is not 3 characters
+        contentBlock.style.display = 'none';
+      }
+    });
   });
